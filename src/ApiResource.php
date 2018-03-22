@@ -1,5 +1,5 @@
 <?php
-namespace TalentLMS\Lib;
+namespace TalentLMS;
 abstract class ApiResource{
 
 	protected static function _scopedRetrieve($class, $id){

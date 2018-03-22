@@ -1,9 +1,9 @@
 <?php
 require "../../vendor/autoload.php";
 
-use TalentLMS\Lib\Course;
-use TalentLMS\Lib\TalentLMS;
-use TalentLMS\Lib\User;
+use TalentLMS\Course;
+use TalentLMS\TalentLMS;
+use TalentLMS\User;
 
 TalentLMS::setApiKey('yq2KrTsiCVkuyn9br49fiJ6Ex8aUAR');
 TalentLMS::setDomain('easymarkets.talentlms.com');

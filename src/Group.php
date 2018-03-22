@@ -1,14 +1,14 @@
 <?php
 
-namespace TalentLMS\Lib;
+namespace TalentLMS;
 
-class Branch extends ApiResource
+class Group extends ApiResource
 {
 
     public static function create($params)
     {
         $class = get_class();
-        return self::_scopedCreateBranch($class, $params);
+        return self::_scopedCreateGroup($class, $params);
     }
 
     public static function retrieve($id)
@@ -26,30 +26,24 @@ class Branch extends ApiResource
     public static function delete($params)
     {
         $class = get_class();
-        return self::_scopedDeleteBranch($class, $params);
+        return self::_scopedDeleteGroup($class, $params);
     }
 
     public static function addUser($params)
     {
         $class = get_class();
-        return self::_scopedAddUserToBranch($class, $params);
+        return self::_scopedAddUserToGroup($class, $params);
     }
 
     public static function removeUser($params)
     {
         $class = get_class();
-        return self::_scopedRemoveUserFromBranch($class, $params);
+        return self::_scopedRemoveUserFromGroup($class, $params);
     }
 
     public static function addCourse($params)
     {
         $class = get_class();
-        return self::_scopedAddCourseToBranch($class, $params);
-    }
-
-    public static function setStatus($params)
-    {
-        $class = get_class();
-        return self::_scopedSetBranchStatus($class, $params);
+        return self::_scopedAddCourseToGroup($class, $params);
     }
 }

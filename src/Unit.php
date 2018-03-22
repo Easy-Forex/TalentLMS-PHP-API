@@ -1,6 +1,6 @@
 <?php
 
-namespace TalentLMS\Lib;
+namespace TalentLMS;
 
 class Unit extends ApiResource
 {
