@@ -5,8 +5,11 @@ use TalentLMS\Course;
 use TalentLMS\TalentLMS;
 use TalentLMS\User;
 
-TalentLMS::setApiKey('yq2KrTsiCVkuyn9br49fiJ6Ex8aUAR');
-TalentLMS::setDomain('easymarkets.talentlms.com');
+/**
+ * In order to run this test case you need to uncomment the below two lines and add the correct info for api key and domain
+ */
+//TalentLMS::setApiKey('DUMMY_KEY');
+//TalentLMS::setDomain('DUMMY_DOMAIN');
 
 $users = User::all();
 
