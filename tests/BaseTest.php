@@ -1,5 +1,8 @@
 <?php
-require "../../vendor/autoload.php";
+/**
+ * @todo - change to unit tests
+ */
+require "../vendor/autoload.php";
 
 use TalentLMS\Course;
 use TalentLMS\TalentLMS;
