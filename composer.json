@@ -1,5 +1,5 @@
 {
-	"name": "talentlms-api",
+	"name": "easyforex/talentlms-api",
 	"type": "library",
 	"license": "MIT",
 	"description": "Integration with TalentLMS API",
