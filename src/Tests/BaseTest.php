@@ -33,7 +33,7 @@ $user_id = null;
 
 // Get User Details
 try {
-    $user = User::retrieve(array('email' => 'sam@easymarkets.com'));
+    $user = User::retrieve(array('email' => 'test@email.com'));
     var_dump($user);
     $user_id = $user['id'];
 }
@@ -54,7 +54,7 @@ catch (Exception $e) {
 
 // Get User Details
 try {
-    $user = User::retrieve(array('email' => 'sam@easymarkets.com'));
+    $user = User::retrieve(array('email' => 'test@email.com'));
     var_dump($user);
 }
 catch (Exception $e) {
