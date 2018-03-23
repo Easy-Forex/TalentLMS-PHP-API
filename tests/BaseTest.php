@@ -26,8 +26,7 @@ try {
         $course_id = $course['id'];
     }
     var_dump($courses);
-}
-catch (Exception $e) {
+} catch (Exception $e) {
     var_dump($e->getCode());
     var_dump($e->getMessage());
 }
@@ -39,8 +38,7 @@ try {
     $user = User::retrieve(array('email' => 'test@email.com'));
     var_dump($user);
     $user_id = $user['id'];
-}
-catch (Exception $e) {
+} catch (Exception $e) {
     var_dump($e->getCode());
     var_dump($e->getMessage());
 }
@@ -49,8 +47,7 @@ catch (Exception $e) {
 try {
     $enroll = Course::addUser(array('user_id' => $user_id, 'course_id' => $course_id, 'role' => 'learner'));
     var_dump($enroll);
-}
-catch (Exception $e) {
+} catch (Exception $e) {
     var_dump($e->getCode());
     var_dump($e->getMessage());
 }
@@ -59,9 +56,7 @@ catch (Exception $e) {
 try {
     $user = User::retrieve(array('email' => 'test@email.com'));
     var_dump($user);
-}
-catch (Exception $e) {
+} catch (Exception $e) {
     var_dump($e->getCode());
     var_dump($e->getMessage());
 }
-

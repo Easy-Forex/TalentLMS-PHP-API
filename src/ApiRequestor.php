@@ -19,8 +19,11 @@ class ApiRequestor
         try {
             $response = json_decode($rbody, true);
         } catch (Exception $e) {
-            throw new ApiError("Invalid response body from API: " . $rbody . " (HTTP response code was " . $rcode . ")",
-                $rcode, $rbody);
+            throw new ApiError(
+                "Invalid response body from API: " . $rbody . " (HTTP response code was " . $rcode . ")",
+                $rcode,
+                $rbody
+            );
         }
 
         if ($rcode < 200 || $rcode >= 300) {
@@ -132,11 +135,19 @@ class ApiRequestor
     protected static function _handleApiError($rbody, $rcode, $response)
     {
         if (!is_array($response) || !isset($response['error'])) {
-            throw new ApiError("Invalid response object from API: " . $rbody . " (HTTP response code was: " . $rcode . ")",
-                $rcode, $rbody, $response);
+            throw new ApiError(
+                "Invalid response object from API: " . $rbody . " (HTTP response code was: " . $rcode . ")",
+                $rcode,
+                $rbody,
+                $response
+            );
         }
 
-        throw new ApiError(isset($response['error']['message']) ? $response['error']['message'] : null, $rcode, $rbody,
-            $response);
+        throw new ApiError(
+            isset($response['error']['message']) ? $response['error']['message'] : null,
+            $rcode,
+            $rbody,
+            $response
+        );
     }
 }
