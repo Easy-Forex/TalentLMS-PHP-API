@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<phpunit bootstrap="./vendor/autoload.php">
+    <testsuites>
+        <testsuite name="TalentLMS test suite">
+            <directory>./Tests</directory>
+            <exclude>./Tests/BaseTalentLmsTest.php</exclude>
+        </testsuite>
+    </testsuites>
+</phpunit>
