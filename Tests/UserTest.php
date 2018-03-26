@@ -61,7 +61,6 @@ class UserTest extends BaseTalentLmsTest
             $result = User::signup($duplicateData);
         } catch (Exception $ex) {
             $this->assertEqualsExceptionMessage($ex, "A user with the same email address already exists");
-            $this->assertEquals($ex->getMessage(), "A user with the same email address already exists");
         }
     }
 
