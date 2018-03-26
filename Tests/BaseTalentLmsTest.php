@@ -26,8 +26,8 @@ class BaseTalentLmsTest extends TestCase
 
     protected function setApiKeys()
     {
-        TalentLMS::setApiKey('kN8WEiIGLYtfMQlmVFvLvSYNwJ2wTi');
-        TalentLMS::setDomain('easymarkets.talentlms.com');
+        TalentLMS::setApiKey('API_KEY');
+        TalentLMS::setDomain('DOMAIN');
     }
 
     protected function setWrongApiKey()
