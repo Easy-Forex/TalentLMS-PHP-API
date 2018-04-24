@@ -501,7 +501,7 @@ abstract class ApiResource
     private static function _validateCall($method, $class, $params = null)
     {
         if ($params && !is_array($params)) {
-            throw new ApiError("You must pass an array as the first argument to ".$class.'::'.$method."() method calls.");
+            throw new ApiError("You must pass an array as the first argument to ".$class.'::'.$method."() method calls.", TalentLmsErrorCodes::INVALID_PARAMS);
         }
     }
 }

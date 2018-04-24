@@ -20,7 +20,8 @@ class ApiRequestor
             $response = json_decode($rbody, true);
         } catch (Exception $e) {
             throw new ApiError(
-                "Invalid response body from API: " . $rbody . " (HTTP response code was " . $rcode . ")",
+                "Invalid response body from API",
+                TalentLmsErrorCodes::INVALID_RESPONSE,
                 $rcode,
                 $rbody
             );
@@ -39,11 +40,11 @@ class ApiRequestor
         $myApiBase = TalentLMS::$apiBase;
 
         if (!$myApiKey) {
-            throw new ApiError('No API key provided. (HINT: set your API key using "TalentLMS::setApiKey(\'API-KEY\')").');
+            throw new ApiError('No API key provided. (HINT: set your API key using "TalentLMS::setApiKey(\'API-KEY\')").', TalentLmsErrorCodes::INVALID_API_KEY);
         }
 
         if (!$myApiBase) {
-            throw new ApiError('No domain provided. (HINT: set your domain using "TalentLMS::setDomain(\'DOMAIN\')").');
+            throw new ApiError('No domain provided. (HINT: set your domain using "TalentLMS::setDomain(\'DOMAIN\')").', TalentLmsErrorCodes::INVALID_DOMAIN);
         }
 
         $absUrl = self::_apiUrl($url);
@@ -87,7 +88,7 @@ class ApiRequestor
                     $opts[CURLOPT_POSTFIELDS] = http_build_query($params, null, '&');
                 }
             } else {
-                throw new ApiError("Unsupported method " . $method);
+                throw new ApiError("Unsupported method " . $method, TalentLmsErrorCodes::UNSUPPORTED_CURL_METHOD);
             }
         }
 
@@ -119,17 +120,12 @@ class ApiRequestor
 
     protected static function _handleCurlError($errno, $message)
     {
-        $apiBase = TalentLMS::$apiBase;
-        echo "Error number is ".$errno.PHP_EOL;
-        echo "Message ".$message.PHP_EOL;
         if ($errno == CURLE_COULDNT_CONNECT || $errno == CURLE_COULDNT_RESOLVE_HOST || $errno == CURLE_OPERATION_TIMEOUTED) {
-            $msg = "Could not connect to TalentLMS (" . $apiBase . "). Please check your internet connection and try again.";
+            $msg = "Could not connect to TalentLMS. Please check your internet connection and try again.";
         } else {
             $msg = "Unexpected error while communicating with TalentLMS. Please try again.";
         }
-
-        $msg .= "\n\n(Network error: " . $message . ")";
-        throw new ApiError($msg);
+        throw new ApiError($msg, TalentLmsErrorCodes::CURL_ERROR);
     }
 
     protected static function _handleApiError($rbody, $rcode, $response)

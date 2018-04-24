@@ -12,6 +12,7 @@ class ApiErrorTest extends TestCase
     var $apiError = null;
     var $expected = array(
         'message'   =>  'Record with this id not found',
+        'code'      =>  0,
         'http_status' => 404,
         'http_body' => '<span class="error">Record not found</span>',
         'json_body' => "{content:'<span class=\"error\">Record not found</span>'}"
@@ -20,12 +21,12 @@ class ApiErrorTest extends TestCase
     protected function setUp()
     {
         parent::setUp();
-        $this->apiError = new ApiError($this->expected['message'],$this->expected['http_status'],$this->expected['http_body'],$this->expected['json_body']);
+        $this->apiError = new ApiError($this->expected['message'], 0 ,$this->expected['http_status'],$this->expected['http_body'],$this->expected['json_body']);
     }
 
     public function testApiErrorConstructor()
     {
-        $objApiError = new ApiError("This is a test");
+        $objApiError = new ApiError("This is a test", 0);
         $this->assertInstanceOf(ApiError::class, $objApiError);
     }
 
