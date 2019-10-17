@@ -22,7 +22,7 @@ class Languages
 			'es'      => 'es',
 			'de'      => 'de'
 		);
-		return isset($languageMapping[$easymarketsKey])?$languageMapping[$easymarketsKey]:null;
+		return isset($languageMapping[$easymarketsKey])?$languageMapping[$easymarketsKey]:'en';
 	}
 	
 	public static function humanizeLanguage($talentLmsLanguageKey)
@@ -35,6 +35,6 @@ class Languages
 			'es'    => 'Spanish',
 			'de'    => 'German'
 		);
-		return isset($humanizedLanguages[$talentLmsLanguageKey])?$humanizedLanguages[$talentLmsLanguageKey]:null;
+		return isset($humanizedLanguages[$talentLmsLanguageKey])?$humanizedLanguages[$talentLmsLanguageKey]:'English';
 	}
 }
