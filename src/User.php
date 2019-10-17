@@ -16,7 +16,7 @@ class User extends ApiResource
 		$languageMapping = array(
 			'en'      => 'en',
 			'zh-hans' => 'zh_cn',
-			'pl'      => 'en',
+			'pl'      => 'pl',
 			'ar'      => 'ar_ae',
 			'es'      => 'es',
 			'de'      => 'de'
