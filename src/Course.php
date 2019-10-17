@@ -23,24 +23,6 @@ class Course extends ApiResource
         return self::_scopedAll($class);
     }
 
-    /**
-     * List active Courses.
-     *
-     * @return Array $result
-     */
-    public static function list() {
-
-        $result = array(0 => 'Not Used');
-        $courses = self::all();
-        foreach($courses as $course){
-            if ($course['status'] == 'active' && $course['hide_from_catalog'] == 0){
-                $result['Level '.$course['level']][$course['id']] = $course['name'];
-            }
-        }
-
-        return ksort($result);
-    }
-
     public static function delete($params)
     {
         $class = get_class();
