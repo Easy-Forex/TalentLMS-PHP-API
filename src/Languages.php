@@ -20,7 +20,8 @@ class Languages
 			'pl'      => 'pl',
 			'ar'      => 'ar_ae',
 			'es'      => 'es',
-			'de'      => 'de'
+			'de'      => 'de',
+			'ja'      => 'ja'
 		);
 		return isset($languageMapping[$easymarketsKey])?$languageMapping[$easymarketsKey]:'en';
 	}
@@ -33,7 +34,8 @@ class Languages
 			'pl'    => 'Polish',
 			'ar'    => 'Arabic - United Arab Emirates',
 			'es'    => 'Spanish',
-			'de'    => 'German'
+			'de'    => 'German',
+			'ja'    => 'Japanese'
 		);
 		return isset($humanizedLanguages[$talentLmsLanguageKey])?$humanizedLanguages[$talentLmsLanguageKey]:'English';
 	}
