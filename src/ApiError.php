@@ -13,6 +13,7 @@ class ApiError extends Exception
         $this->http_status = $http_status;
         $this->http_body = $http_body;
         $this->json_body = $json_body;
+		error_log("Talent LMS error: ".$code." \r\nMessage: ".$message);
     }
 
     public function getHttpStatus()
