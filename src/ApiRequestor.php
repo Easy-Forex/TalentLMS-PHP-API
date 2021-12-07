@@ -139,6 +139,10 @@ class ApiRequestor
             );
         }
 
+        if ($rcode == 404 && isset($response['error']['message']) && $response['error']['message'] === 'The requested user does not exist') {
+            return;
+        }
+       
         throw new ApiError(
             isset($response['error']['message']) ? $response['error']['message'] : null,
             $rcode,
