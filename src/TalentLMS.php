@@ -31,7 +31,7 @@ abstract class TalentLMS
         $domain = str_replace('/', '', $domain);
 
         self::$domain = $domain;
-        self::$apiBase = 'http://' . $domain . '/api/v1';
+        self::$apiBase = 'https://' . $domain . '/api/v1';
     }
 
     public static function getApiBase()
