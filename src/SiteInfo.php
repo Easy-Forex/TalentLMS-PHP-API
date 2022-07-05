@@ -2,9 +2,8 @@
 
 namespace TalentLMS;
 
-class Siteinfo extends ApiResource
+class SiteInfo extends ApiResource
 {
-
     public static function get()
     {
         $class = get_class();
